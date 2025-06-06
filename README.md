@@ -9,6 +9,17 @@ This project demonstrates a microfrontend architecture using Zephyr Cloud as the
 
 All apps are connected using Module Federation (Webpack), allowing independent deployment and runtime integration.
 
+## Screenshots
+### Shell App
+![image](https://github.com/user-attachments/assets/3299a9e9-a100-44da-8e54-ba77d2cdb5ec)
+
+### React App
+![image](https://github.com/user-attachments/assets/407d8792-f023-4e3a-9774-cce2cae07615)
+
+### Vue App
+![image](https://github.com/user-attachments/assets/9b8c5cad-04fd-4e33-962e-19e8649e70f6)
+
+
 ---
 
 ## Tech Stack
@@ -16,6 +27,7 @@ All apps are connected using Module Federation (Webpack), allowing independent d
 - **Vue 3** (app2-vue)
 - **Webpack 5** (Module Federation)
 - **TypeScript** (all apps)
+- **Tailwind** (style)
 - **pnpm** (package management)
 - **Zephyr Cloud** (provider for deployment and orchestration)
 
@@ -53,7 +65,9 @@ After running all of them, you can then access them individually or directly via
 
 ---
 
-## Diagram Flow
+## Architeture
+![image](https://github.com/user-attachments/assets/69655015-66c9-4bab-bcaf-380f66e44655)
+
 
 
 ---
@@ -68,4 +82,7 @@ After running all of them, you can then access them individually or directly via
 ## Additional Notes
 - For cross-framework integration (React shell loading Vue remote), a wrapper component (`VueWrapper.tsx`) is used in the shell.
 
----
+What it does:
+- Dynamically imports the Vue microfrontend exposed via Module Federation.
+- Uses a ref to get a DOM element, then mounts the Vue app/component into that element using Vue's createApp.
+- Handles cleanup by unmounting the Vue app when the React component unmounts or updates.
