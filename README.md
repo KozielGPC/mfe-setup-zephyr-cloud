@@ -9,6 +9,8 @@ This project demonstrates a microfrontend architecture using Zephyr Cloud as the
 
 All apps are connected using Module Federation (Webpack), allowing independent deployment and runtime integration.
 
+- Deployment URL: https://staging-app-shell-mfe-setup-zephyr-cloud-kozielgpc-ze.zephyrcloud.app
+
 ## Screenshots
 ### Shell App
 ![image](https://github.com/user-attachments/assets/3299a9e9-a100-44da-8e54-ba77d2cdb5ec)
@@ -50,7 +52,7 @@ For every app, open it's folder and run the following steps:
    ```
 
 2. **Start**
-   You can start all apps at once using the root script:
+   You can start it running:
    ```powershell
    pnpm start
    ```
@@ -74,8 +76,8 @@ After running all of them, you can then access them individually or directly via
 
 ## Deployment
 - Each app can be deployed independently to Zephyr Cloud.
-- The shell app should be configured to reference the deployed URLs of the remotes.
-- It can be accessed in: https://staging-app-shell-mfe-setup-zephyr-cloud-kozielgpc-ze.zephyrcloud.app
+- Shell App references remote apps via webpack configuration.
+- Shell App can can be accessed in: https://staging-app-shell-mfe-setup-zephyr-cloud-kozielgpc-ze.zephyrcloud.app
 
 ---
 
