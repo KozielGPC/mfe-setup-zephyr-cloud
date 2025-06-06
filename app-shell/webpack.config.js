@@ -21,6 +21,11 @@ module.exports = withZephyr()({
         loader: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+        exclude: /node_modules/,
+      },
     ],
   },
   resolve: {

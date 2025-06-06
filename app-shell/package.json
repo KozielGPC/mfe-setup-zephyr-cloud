@@ -21,10 +21,16 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-router-dom": "^5.3.3",
+    "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.0.0",
+    "postcss": "^8.5.4",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.8",
     "ts-loader": "^9.0.0",
     "typescript": "^5.0.0",
     "webpack": "^5.0.0",
@@ -35,5 +41,11 @@
   "zephyr:dependencies": {
     "app1_react": "zephyr:app1_react@*",
     "app2_vue": "zephyr:app2_vue@*"
+  },
+  "postcss": {
+    "plugins": {
+      "@tailwindcss/postcss": {},
+      "autoprefixer": {}
+    }
   }
 }
