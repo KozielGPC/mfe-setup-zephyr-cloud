@@ -12,6 +12,9 @@ const App: React.FC = () => {
           <li>
             <Link to="/react">React App</Link>
           </li>
+          <li>
+            <Link to="/vue">Vue App</Link>
+          </li>
         </ul>
       </nav>
       <Routers />

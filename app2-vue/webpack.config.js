@@ -1,42 +1,50 @@
+const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const { withZephyr } = require("zephyr-webpack-plugin");
-const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 const path = require("path");
 
 module.exports = withZephyr()({
-  entry: "./src/index.tsx",
+  entry: "./src/main.ts",
   mode: "development",
   devServer: {
-    port: 4000,
-    static: path.join(__dirname, "dist"),
+    port: 4002,
+    static: path.join(__dirname, 'dist'),
   },
   output: {
-    publicPath: "auto",
+    publicPath: 'auto',
   },
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: "vue-loader",
+      },
+      {
         test: /\.tsx?$/,
         loader: "ts-loader",
+        options: { appendTsSuffixTo: [/\.vue$/] },
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".vue"],
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app_shell",
-      remotes: {
-        'app1_react': "app1_react@http://localhost:4001/remoteEntry.js",
-        'app2_vue': "app2_vue@http://localhost:4002/remoteEntry.js",
+      name: "app2_vue",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./App": "./src/App.vue",
+      },
+      shared: {
+        vue: { singleton: true, eager: true, requiredVersion: "^3.0.0" },
       },
     }),
-    new ExternalTemplateRemotesPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
+    new VueLoaderPlugin(),
   ],
 });

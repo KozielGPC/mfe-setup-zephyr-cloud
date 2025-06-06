@@ -34,6 +34,6 @@
   },
   "zephyr:dependencies": {
     "app1_react": "zephyr:app1_react@*",
-    "app3_vue": "zephyr:app3_vue@*"
+    "app2_vue": "zephyr:app2_vue@*"
   }
 }
