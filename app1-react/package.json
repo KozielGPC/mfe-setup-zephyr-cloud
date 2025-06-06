@@ -12,13 +12,26 @@
     "zephyr-webpack-plugin": "^0.0.50"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "autoprefixer": "^10.4.21",
+    "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.0.0",
+    "postcss": "^8.5.4",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.8",
     "ts-loader": "^9.0.0",
     "typescript": "^5.0.0",
     "webpack": "^5.0.0",
     "webpack-cli": "^4.0.0",
     "webpack-dev-server": "^4.0.0"
+  },
+  "postcss": {
+    "plugins": {
+      "@tailwindcss/postcss": {},
+      "autoprefixer": {}
+    }
   }
 }
